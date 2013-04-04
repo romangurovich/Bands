@@ -1,0 +1,12 @@
+<h1><%= "#{@artist.first_name} #{@artist.last_name}'s Profile" %></h1>
+
+<p> <%= @artist.name %> belongs to these bands: </p>
+
+<ul>
+	<% @artist.bands.each do |band| %>
+	<li>
+		<%= band.name %>
+	</li>
+	<% end %>
+</ul>
+

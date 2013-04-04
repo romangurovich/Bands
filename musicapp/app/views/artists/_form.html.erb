@@ -1,0 +1,10 @@
+<%= form_for(@artist, html: {multipart: true}) do |f| %>
+  <p>
+		<%= f.label :name, "Artist Name" %>
+		<%= f.text_field :name %>
+	</p>
+
+  <p>
+		<%= f.submit %>
+	</p>
+<% end %>

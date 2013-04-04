@@ -4,4 +4,6 @@ class Artist < ActiveRecord::Base
   has_many :collaborations
   has_many :bands, through: :collaborations
 
+	has_many :singles, through: :bands
+
 end

@@ -3,4 +3,6 @@ class Recording < ActiveRecord::Base
 
   belongs_to :single
 
+  has_one :band, through: :single
+
 end
