@@ -1,0 +1,28 @@
+<h1>Edit <%= @album.name %></h1>
+
+<%= form_for(@album, html: {multipart: true}) do |f| %>
+  <p>
+		<%= f.label :title, "Album's Title" %>
+		<%= f.text_field :title %>
+	</p>
+
+	<% @album.songs.each do |song| %>
+		<%=
+		  check_box_tag(
+			 	 "album[song_ids][]",
+				 song.id,
+				 @album.song_ids.include?(song.id),
+				 :id => "song_ids_#{song.id}"
+			)
+		%>
+
+		<%= label_tag "song_ids_#{song.id}", song.name%>
+		<br>
+	<% end %>
+
+	<%= hidden_field_tag "album[song_ids][]"%>
+
+  <p>
+		<%= f.submit %>
+	</p>
+<% end %>

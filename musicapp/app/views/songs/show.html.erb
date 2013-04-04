@@ -1,0 +1,17 @@
+<h1><%= @song.name %></h1>
+<h3>by <%= @song.band.name %></h3>
+
+<p><%= @song.name %> has these tracks:</p>
+
+<ul>
+	<% @song.tracks.each do |track| %>
+	<li>
+		<%= track.name %>
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to "Edit", edit_song_path(@song) %>
+<br>
+<%= link_to "Back to songs", songs_path %>
+

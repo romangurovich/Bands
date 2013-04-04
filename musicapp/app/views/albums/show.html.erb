@@ -1,0 +1,19 @@
+<h1><%= @album.title %></h1>
+
+<p>This album is by <%= @album.band.name %></p>
+<p><%= @album.title %> has these songs:</p>
+
+<ul>
+	<% @album.songs.each do |song| %>
+	<li>
+		<%= song.name %>
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to "Delete Songs", edit_album_path(@album) %>
+
+<%= link_to "Add a Song", new_album_song_path(@album) %>
+<br>
+<%= link_to "Back to albums", albums_path %>
+

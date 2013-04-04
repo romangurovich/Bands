@@ -10,7 +10,17 @@
 	<% end %>
 </ul>
 
-<%= link_to "Edit", edit_band_path(@band) %>
+<ul>
+	<% @band.albums.each do |album| %>
+	<li>
+		<%= album.title %>
+	</li>
+	<% end %>
+</ul>
 <br>
+<%= link_to 'Create new album', new_band_album_path(@band), class: 'new_album' %>
+<br>
+<%= link_to "Edit", edit_band_path(@band) %>
+ <br>
 <%= link_to "Back to bands", bands_path %>
 

@@ -1,0 +1,9 @@
+<h1>All Albums</h1>
+
+<ul id="albums">
+	<% @albums.each do |album| %>
+		<li>
+			<%= link_to album.title, album_path(album), class: 'album_title' %>
+		</li>
+	<% end %>
+</ul>
