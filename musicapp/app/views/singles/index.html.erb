@@ -1,0 +1,12 @@
+<h1>All Singles</h1>
+
+<ul id="singles">
+	<% @singles.each do |single| %>
+		<li>
+			<%= link_to single.name, single_path(single), class: 'single_title' %>
+			<div class="by">by <%= single.band %> </div>
+		</li>
+	<% end %>
+</ul>
+
+<%= link_to 'Create new single', new_single_path, class: 'new_single' %>

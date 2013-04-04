@@ -1,0 +1,17 @@
+<h1><%= @single.name %></h1>
+<h3>by <%= @single.band %></h3>
+
+<p><%= @single.name %> has these recordings:</p>
+
+<ul>
+	<% @single.recordings.each do |recording| %>
+	<li>
+		<%= recording.name %>
+	</li>
+	<% end %>
+</ul>
+
+<%= link_to "Edit", edit_single_path(@single) %>
+<br>
+<%= link_to "Back to singles", singles_path %>
+

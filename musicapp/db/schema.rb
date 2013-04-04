@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404171028) do
+ActiveRecord::Schema.define(:version => 20130404185926) do
+
+  create_table "albums", :force => true do |t|
+    t.string   "title"
+    t.integer  "band_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "albums", ["band_id"], :name => "index_albums_on_band_id"
+  add_index "albums", ["title"], :name => "index_albums_on_title"
 
   create_table "artists", :force => true do |t|
     t.string   "first_name"
@@ -40,22 +50,22 @@ ActiveRecord::Schema.define(:version => 20130404171028) do
   add_index "collaborations", ["artist_id"], :name => "index_collaborations_on_artist_id"
   add_index "collaborations", ["band_id"], :name => "index_collaborations_on_band_id"
 
-  create_table "recordings", :force => true do |t|
+  create_table "songs", :force => true do |t|
     t.string   "name"
-    t.integer  "single_id"
+    t.integer  "album_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "recordings", ["name"], :name => "index_recordings_on_name"
+  add_index "songs", ["name"], :name => "index_songs_on_name"
 
-  create_table "singles", :force => true do |t|
+  create_table "tracks", :force => true do |t|
     t.string   "name"
-    t.integer  "band_id"
+    t.integer  "song_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "singles", ["name"], :name => "index_singles_on_name"
+  add_index "tracks", ["name"], :name => "index_tracks_on_name"
 
 end

@@ -13,11 +13,13 @@ george = Artist.create(first_name: 'George', last_name: 'Harrison')
 
 beatles = Band.create(name: 'Beatles')
 
-norwegianwood = Single.create(band_id: 1, name: 'Norwegian Wood')
+rs = beatles.albums.create(title: 'Rubber Soul')
 
-norwegianwood1 = Recording.create(name: 'Norwegian Wood1', single_id: 1)
-norwegianwood2 = Recording.create(name: 'Norwegian Wood2', single_id: 1)
-norwegianwood3 = Recording.create(name: 'Norwegian Wood3', single_id: 1)
+norwegianwood = Song.create(album_id: 1, name: 'Norwegian Wood')
+
+norwegianwood1 = Track.create(name: 'Norwegian Wood1', song_id: 1)
+norwegianwood2 = Track.create(name: 'Norwegian Wood2', song_id: 1)
+norwegianwood3 = Track.create(name: 'Norwegian Wood3', song_id: 1)
 
 Collaboration.create(artist_id: 1, band_id: 1)
 Collaboration.create(artist_id: 2, band_id: 1)
