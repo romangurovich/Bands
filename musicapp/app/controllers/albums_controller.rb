@@ -17,8 +17,14 @@ class AlbumsController < ApplicationController
     @album.title = params[:album][:title]
     @album.band_id = params[:album][:band_id]
     @album.save
-    flash.now.notice = "Album '#{@album.title}' created."
-    redirect_to album_path(@album)
+
+    if @album.save
+      flash.now.notice = "Album '#{@album.title}' created."
+      redirect_to album_path(@album)
+    else
+      flash.notice = @album.errors.full_messages
+      render :new
+    end
   end
 
   def edit

@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     @artist.first_name = params[:artist][:first_name]
     @artist.last_name = params[:artist][:last_name]
     if @artist.save
-      flash.now.notice = "Artist '#{@artist.title}' created."
+      flash.now.notice = "Artist '#{@artist.first_name} #{@artist.last_name}' created."
       redirect_to artist_path(@artist)
     else
       flash.notice = @artist.errors.full_messages

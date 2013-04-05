@@ -16,8 +16,13 @@ class TracksController < ApplicationController
     @track = Track.new
     @track.name = params[:track][:name]
     @track.song_id = params[:track][:song_id]
-    @track.save
-    redirect_to track_path(@track)
+    if @track.save
+      flash.now.notice = "Track '#{@track.name}' created."
+      redirect_to track_path(@track)
+    else
+      flash.notice = @track.errors.full_messages
+      render :new
+    end
   end
 
   def edit

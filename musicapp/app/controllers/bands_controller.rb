@@ -14,8 +14,13 @@ class BandsController < ApplicationController
   def create
     @band = Band.new
     @band.name = params[:band][:name]
-    @band.save
-    redirect_to band_path(@band)
+    if @band.save
+      flash.now.notice = "Band '#{@band.name}' created."
+      redirect_to band_path(@band)
+    else
+      flash.notice = @band.errors.full_messages
+      render :new
+    end
   end
 
   def edit

@@ -17,8 +17,13 @@ class SongsController < ApplicationController
     @song = Song.new
     @song.name = params[:song][:name]
     @song.album_id = params[:song][:album_id]
-    @song.save
-    redirect_to song_path(@song)
+    if @song.save
+      flash.now.notice = "Song '#{@song.name}' created."
+      redirect_to song_path(@song)
+    else
+      flash.notice = @song.errors.full_messages
+      render :new
+    end
   end
 
   def edit
