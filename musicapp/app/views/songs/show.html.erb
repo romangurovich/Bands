@@ -6,7 +6,7 @@
 <ul>
 	<% @song.tracks.each do |track| %>
 	<li>
-		<%= track.name %>
+		<%= link_to track.name, track_path(track) %>
 	</li>
 	<% end %>
 </ul>
@@ -14,4 +14,3 @@
 <%= link_to "Edit", edit_song_path(@song) %>
 <br>
 <%= link_to "Back to songs", songs_path %>
-

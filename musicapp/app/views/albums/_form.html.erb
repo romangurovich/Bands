@@ -1,11 +1,15 @@
 <%= form_for(@album, html: {multipart: true}) do |f| %>
-  <p>
+
+	<% unless @band_id %>
+		<%= f.label :band_id, "Bands List"%>
+		<%= f.collection_select :band_id, Band.all, :id, :name %>
+	<% else %>
+		<%= f.hidden_field :band_id, value: @band_id %>
+	<% end %>
+
+	<p>
 		<%= f.label :title, "Album's Title" %>
 		<%= f.text_field :title %>
-	</p>
-
-  <p>
-		<%= f.hidden_field :band_id, value: @band_id %>
 	</p>
 
   <p>

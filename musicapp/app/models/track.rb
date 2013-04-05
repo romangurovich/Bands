@@ -4,4 +4,6 @@ class Track < ActiveRecord::Base
   belongs_to :song
   has_one :album, through: :song
 
+  validates :name, :song_id, presence: true
+
 end

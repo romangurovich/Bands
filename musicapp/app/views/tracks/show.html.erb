@@ -1,0 +1,8 @@
+<h1><%= @track.name %></h1>
+<h3>by <%= @track.song.band.name %></h3>
+
+<p><%= @track.name %> for the song: <%= @track.song.name %></p>
+
+<%= link_to "Edit Track", edit_track_path(@track) %>
+<br>
+<%= link_to "Back to tracks", tracks_path %>

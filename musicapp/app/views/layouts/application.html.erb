@@ -8,7 +8,9 @@
 </head>
 <body>
 
-<%= yield %>
+	<div class='flash_message'> <%= flash.notice %> </div>
+
+  <%= yield %>
 
 </body>
 </html>

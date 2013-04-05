@@ -1,3 +1,28 @@
 <h1>Edit <%= @band.name %></h1>
 
-<%= render 'form' %>
+<%= form_for(@band, html: {multipart: true}) do |f| %>
+  <p>
+		<%= f.label :name, "Band Name" %>
+		<%= f.text_field :name %>
+	</p>
+
+	<% @band.artists.each do |artist| %>
+		<%=
+		  check_box_tag(
+			 	 "band[artist_ids][]",
+				 artist.id,
+				 @band.artist_ids.include?(artist.id),
+				 :id => "artist_ids_#{artist.id}"
+			)
+		%>
+
+		<%= label_tag "artist_ids_#{artist.id}", "#{artist.first_name} #{artist.last_name}" %>
+		<br>
+	<% end %>
+
+	<%= hidden_field_tag "band[artist_ids][]"%>
+
+  <p>
+		<%= f.submit %>
+	</p>
+<% end %>

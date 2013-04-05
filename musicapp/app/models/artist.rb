@@ -8,4 +8,6 @@ class Artist < ActiveRecord::Base
   has_many :songs, through: :albums
   has_many :tracks, through: :songs
 
+  validates :first_name, :last_name, presence: true
+
 end

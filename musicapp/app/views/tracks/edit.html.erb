@@ -1,0 +1,12 @@
+<h1>Edit <%= @track.name %></h1>
+
+<%= form_for(@track, html: {multipart: true}) do |f| %>
+  <p>
+		<%= f.label :name, "Track Title" %>
+		<%= f.text_field :name %>
+	</p>
+
+  <p>
+		<%= f.submit %>
+	</p>
+<% end %>

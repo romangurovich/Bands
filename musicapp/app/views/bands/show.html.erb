@@ -5,15 +5,16 @@
 <ul>
 	<% @band.artists.each do |artist| %>
 	<li>
-		<%= "#{artist.first_name} #{artist.last_name}" %>
+		<%= link_to "#{artist.first_name} #{artist.last_name}", artist_path(artist) %>
 	</li>
 	<% end %>
 </ul>
 
+<p>Albums:</p>
 <ul>
 	<% @band.albums.each do |album| %>
 	<li>
-		<%= album.title %>
+		<%= link_to album.title, album_path(album) %>
 	</li>
 	<% end %>
 </ul>

@@ -1,0 +1,14 @@
+<h1>All Tracks</h1>
+
+<ul id="tracks">
+	<% @songs.each do |song| %>
+		<div class="by"> <%= song.name %> </div>
+		<div class="by">by <%= song.band.name %> </div>
+
+		<% song.tracks.each do |track| %>
+			<li>
+				<%= link_to track.name, track_path(track), class: 'track_title' %>
+			</li>
+		<% end %>
+	<% end %>
+</ul>

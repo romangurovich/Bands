@@ -5,11 +5,13 @@
 <ul>
 	<% @artist.bands.each do |band| %>
 	<li>
-		<%= band.name %>
+		<%= link_to band.name, band_path(band) %>
 	</li>
 	<% end %>
 </ul>
 
+<%= link_to "Delete", artist_path(@artist), method: :delete %>
+<br>
 <%= link_to "Edit", edit_artist_path(@artist) %>
 <br>
 <%= link_to "Back to artists", artists_path %>

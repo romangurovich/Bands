@@ -1,0 +1,12 @@
+<%= form_for(@track, html: {multipart: true}) do |f| %>
+  <p>
+		<%= f.label :name, "Track Name" %>
+		<%= f.text_field :name %>
+	</p>
+
+		<%= f.hidden_field :song_id, value: @song_id %>
+
+  <p>
+		<%= f.submit %>
+	</p>
+<% end %>

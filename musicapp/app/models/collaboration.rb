@@ -4,4 +4,6 @@ class Collaboration < ActiveRecord::Base
   belongs_to :artist
   belongs_to :band
 
+  validates :artist_id, :band_id, presence: true
+
 end

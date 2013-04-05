@@ -6,6 +6,7 @@
 		<%= f.text_field :name %>
 	</p>
 
+
 	<% @song.tracks.each do |track| %>
 		<%=
 		  check_box_tag(
@@ -16,11 +17,17 @@
 			)
 		%>
 
+
 		<%= label_tag "track_ids_#{track.id}", track.name%>
 		<br>
 	<% end %>
 
 	<%= hidden_field_tag "song[track_ids][]"%>
+
+  <p>
+		<%= f.label :track_list, "Tracks" %>
+		<%= f.text_field :track_list %>
+	</p>
 
   <p>
 		<%= f.submit %>
