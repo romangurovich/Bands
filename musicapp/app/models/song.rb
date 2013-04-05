@@ -2,7 +2,7 @@ class Song < ActiveRecord::Base
   attr_accessible :album_id, :name, :track_list, :track_ids
 
   belongs_to :album
-  has_many :tracks
+  has_many :tracks, dependent: :destroy
   has_one :band, through: :album
 
   validates :album_id, :name, presence: true

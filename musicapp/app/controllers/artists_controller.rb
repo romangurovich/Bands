@@ -15,8 +15,13 @@ class ArtistsController < ApplicationController
     @artist = Artist.new
     @artist.first_name = params[:artist][:first_name]
     @artist.last_name = params[:artist][:last_name]
-    @artist.save
-    redirect_to artist_path(@artist)
+    if @artist.save
+      flash.now.notice = "Artist '#{@artist.title}' created."
+      redirect_to artist_path(@artist)
+    else
+      flash.notice = @artist.errors.full_messages
+      render :new
+    end
   end
 
   def edit
